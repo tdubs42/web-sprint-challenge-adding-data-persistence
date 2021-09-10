@@ -1,9 +1,10 @@
 const db = require('../../data/dbConfig')
+const Project = require('../project/model')
 
 const get = async () => {
   const tasks = await db('tasks as t')
-      .leftJoin('projects as p', 'p.project_id', 't.project_id')
-      .orderBy('t.project_id', 'asc')
+    .leftJoin('projects as p', 'p.project_id', 't.project_id')
+    .orderBy('t.project_id', 'asc')
 
   return tasks.map(task => {
     if (!task) {
@@ -25,6 +26,7 @@ const create = async task => {
   const created = task
   await db('tasks')
     .insert(task)
+
   return created
 }
 
