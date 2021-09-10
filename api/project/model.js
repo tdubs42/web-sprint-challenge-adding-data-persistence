@@ -1,7 +1,10 @@
 const db = require('../../data/dbConfig')
 
 const get = async id => {
-  const projects = id ? await db('projects').where('project_id', id) : await db('projects')
+  const projects = id
+    ? await db('projects')
+      .where('project_id', id)
+    : await db('projects')
 
   return projects.map(project => {
     if (!project) {

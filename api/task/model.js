@@ -22,7 +22,12 @@ const get = async () => {
 }
 
 const create = async task => {
-  const created = task
+  const created = {
+    task_description: task.task_description,
+    task_notes: task.task_notes,
+    task_completed: task.task_completed
+  }
+
   await db('tasks')
     .insert(task)
 

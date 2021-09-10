@@ -1,7 +1,10 @@
 const db = require('../../data/dbConfig')
 
 const get = async id => {
-  const resources = id ? await db('resources').where('resource_id', id) : await db('resources')
+  const resources = id
+    ? await db('resources')
+      .where('resource_id', id)
+    : await db('resources')
 
   return resources.map(resource => {
     if (!resource) {
