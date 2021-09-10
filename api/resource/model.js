@@ -1,20 +1,28 @@
 const db = require('../../data/dbConfig')
 
-const getAll = async () => {
-  return await db('resources')
+const get = async id => {
+  const resources = id ? await db('resources').where('resource_id', id) : await db('resources')
+
+  return resources.map(resource => {
+    if (!resource) {
+      return []
+    }
+    return {
+      resource_id: resource.resource_id,
+      resource_name: resource.resource_name,
+      resource_description: resource.resource_description
+    }
+  })
 }
 
 const create = async resource => {
-  return await db('resources')
+  const created = resource
+  await db('resources')
     .insert(resource)
-    .then(([id]) => {
-      return db('resources')
-        .where('resource_id', id)
-        .first()
-    })
+  return created
 }
 
 module.exports = {
-  getAll,
+  get,
   create
 }

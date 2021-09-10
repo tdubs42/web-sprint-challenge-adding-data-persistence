@@ -3,7 +3,7 @@ const router = require('express')
 const Task = require('./model')
 
 router.get('/', (req, res, next) => {
-  Task.getAll()
+  Task.get()
     .then(tasks => res.json(tasks))
     .catch(next)
 })

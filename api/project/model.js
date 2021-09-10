@@ -18,9 +18,10 @@ const get = async id => {
 }
 
 const create = async project => {
-  return await db('projects')
+  const created = project
+  await db('projects')
     .insert(project)
-    .then(id => get(id))
+  return created
 }
 
 module.exports = {
