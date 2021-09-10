@@ -1,5 +1,4 @@
 const db = require('../../data/dbConfig')
-const Project = require('../project/model')
 
 const get = async () => {
   const tasks = await db('tasks as t')

@@ -1,4 +1,6 @@
 // do not make changes to this file
+// noinspection JSUnusedGlobalSymbols
+
 const sharedConfig = {
   client: 'sqlite3',
   useNullAsDefault: true,

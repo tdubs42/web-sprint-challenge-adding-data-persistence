@@ -1,3 +1,5 @@
+// noinspection JSUnresolvedFunction,JSUnresolvedVariable,JSUnusedLocalSymbols
+
 const express = require('express')
 const helmet = require('helmet')
 const projectsRouter = require('./project/router')
